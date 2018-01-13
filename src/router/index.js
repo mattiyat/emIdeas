@@ -33,14 +33,15 @@ export default new Router({
       component: Profile
     },
     {
-      path: '/SignIn',
+      path: '/signin',
       name: 'Sign In',
       component: SignIn
     },
     {
-      path: '/SignUp',
+      path: '/signup',
       name: 'Sign Up',
       component: SignUp
     }
-  ]
+  ],
+  mode: 'history'
 })
