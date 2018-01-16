@@ -38,12 +38,11 @@
       return {
         drawer: null,
         menuItems: [
-          { icon: 'supervisor_account', text: 'View Ideas', link: '/idea'},
-          { icon: 'room', text: 'Log Idea', link: '/idea/new'},
-          { icon: 'person', text: 'Profile', link: '/profile'},
-          { icon: 'face', text: 'Sign Up', link: '/signup'},
-          { icon: 'lock_open', text: 'Sign In', link: '/signin'},
-          
+          {icon: 'supervisor_account', text: 'View Ideas', link: '/idea'},
+          {icon: 'room', text: 'Log Idea', link: '/idea/new'},
+          {icon: 'person', text: 'Profile', link: '/profile'},
+          {icon: 'face', text: 'Sign Up', link: '/signup'},
+          {icon: 'lock_open', text: 'Sign In', link: '/signin'}
         ]
       }
     }

@@ -1,3 +1,4 @@
+/* eslint-disable */
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/components/Home'
@@ -6,7 +7,6 @@ import Idea from '@/components/Idea/Ideas'
 import Profile from '@/components/Users/Profile'
 import SignIn from '@/components/Users/SignIn'
 import SignUp from '@/components/Users/SignUp'
-
 
 Vue.use(Router)
 
