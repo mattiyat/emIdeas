@@ -3,7 +3,8 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/components/Home'
 import LogIdea from '@/components/Idea/LogIdea'
-import Idea from '@/components/Idea/Ideas'
+import IdeaList from '@/components/Idea/IdeaList'
+import Idea from '@/components/Idea/Idea'
 import Profile from '@/components/Users/Profile'
 import SignIn from '@/components/Users/SignIn'
 import SignUp from '@/components/Users/SignUp'
@@ -18,12 +19,17 @@ export default new Router({
       component: Home
     },
     {
+      path: '/idea/idealist',
+      name: 'IdeaList',
+      component: IdeaList
+    },
+    {
       path: '/idea/new',
       name: 'LogIdea',
       component: LogIdea
     },
     {
-      path: '/idea',
+      path: '/idea/:id',
       name: 'Idea',
       component: Idea
     },

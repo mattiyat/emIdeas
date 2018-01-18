@@ -1,5 +1,5 @@
 <template>
     <div>
-        <p>Create Idea</p>
+        <p>Log an Idea</p>
     </div>
 </template>
