@@ -27,21 +27,13 @@
 
 <script>
     export default {
-        data() {
-            return {
-                ideas: [
-                    {imageURL: require('../assets/cali.jpg'), 
-                    id: '1', title: 'Ideas from California'},
-                    {imageURL: require('../assets/ny.jpg'), 
-                    id: 'awrresdf2234', title: 'Ideas from NewYork'},
-                    {imageURL: require('../assets/mars.jpg'), 
-                    id: 'awrresdf2234', title: 'Ideas from Mars'}
-                    
-                ]
+        computed: {
+            ideas() {
+                return this.$store.getters.featuredIdeas
             }
         },
         methods: {
-            onLoadIdea (id) {
+            onLoadIdea (id) {npm 
                 $router.push('/idea/' + id)
             }
         }

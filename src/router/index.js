@@ -31,6 +31,7 @@ export default new Router({
     {
       path: '/idea/:id',
       name: 'Idea',
+      props: true,
       component: Idea
     },
     {

@@ -4,10 +4,10 @@
            <v-flex xs12>
                <v-card>
                    <v-card-title>
-                       <h3 class="primary--text">My Idea</h3>
+                       <h3 class="primary--text">{{ idea.id }}</h3>
                    </v-card-title>
                    <v-card-media
-                        src="https://media-cdn.tripadvisor.com/media/photo-s/0e/9a/e3/1d/freedom-tower.jpg"
+                        :src="idea.imageURL"
                         height="400px">
                     </v-card-media>
                     <v-card-text>
@@ -23,3 +23,14 @@
        </v-layout>
    </v-container>
 </template>
+
+<script>
+    export default {
+        props: ['id'],
+        computed: {
+            idea() {
+                return this.$store.getters.loadedIdea(this.id)
+            }
+        }
+    }
+</script>
