@@ -1,4 +1,8 @@
 import Vue from 'vue'
+import App from './App'
+import router from './router'
+import { store } from './store'
+import '../node_modules/vuetify/src/stylus/app.styl'
 
 import {
   Vuetify,
@@ -15,10 +19,6 @@ import {
   Vparallax,
   Vcard
 } from 'vuetify'
-import '../node_modules/vuetify/src/stylus/app.styl'
-
-import App from './App'
-import router from './router'
 
 Vue.use(Vuetify, {
   components: {
@@ -43,6 +43,7 @@ Vue.config.productionTip = false
 new Vue({
   el: '#app',
   router,
+  store,
   render: h => h(App)
 })
 
