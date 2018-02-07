@@ -7,7 +7,7 @@
                         <v-layout row>
                             <v-flex xs5 sm4 md3>
                                 <v-card-media
-                                :src="idea.imageURL"
+                                :src="idea.imageUrl"
                                 height="130px">
                                 </v-card-media>
                             </v-flex>

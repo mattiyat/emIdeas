@@ -17,7 +17,10 @@ import {
   transitions,
   Vcarousel,
   Vparallax,
-  Vcard
+  Vcard,
+  Vtextfield,
+  Vdatepicker,
+  Vtimepicker
 } from 'vuetify'
 
 Vue.use(Vuetify, {
@@ -33,7 +36,10 @@ Vue.use(Vuetify, {
     transitions,
     Vcarousel,
     Vparallax,
-    Vcard
+    Vcard,
+    Vtextfield,
+    Vdatepicker,
+    Vtimepicker
   }
 })
 

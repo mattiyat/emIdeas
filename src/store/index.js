@@ -7,19 +7,19 @@ export const store = new Vuex.Store({
   state: {
     loadedIdeas: [
       {
-        imageURL: require('../assets/cali.jpg'),
+        imageUrl: require('../assets/cali.jpg'),
         id: '1',
         title: 'Ideas from California',
         date: '20018-7-18'
       },
       {
-        imageURL: require('../assets/ny.jpg'),
+        imageUrl: require('../assets/ny.jpg'),
         id: '2',
         title: 'Ideas from NewYork',
         date: '20018-7-13'
       },
       {
-        imageURL: require('../assets/mars.jpg'),
+        imageUrl: require('../assets/mars.jpg'),
         id: '3',
         title: 'Ideas from Mars',
         date: '20018-5-17'
@@ -30,8 +30,25 @@ export const store = new Vuex.Store({
       registeredIdeas: ['awrresdf2234']
     }
   },
-  mutations: {},
-  actions: {},
+  mutations: {
+    logIdea (state, payload) {
+      state.loadedIdeas.push(payload)
+    }
+  },
+  actions: {
+    logIdea ({commit}, payload) {
+      const idea = {
+        title: payload.title,
+        abstract: payload.abstract,
+        imageUrl: payload.imageUrl,
+        description: payload.description,
+        date: payload.date,
+        id: 'asdf'
+      }
+      // reach out to firebase
+      commit('logIdea', idea)
+    }
+  },
   getters: {
     // Load ideas and sort via date
     loadedIdeas (state) {

@@ -20,7 +20,7 @@
       <v-spacer></v-spacer>
       <v-toolbar-items class="hidden-xs-only">
         <v-btn flat v-for="item in menuItems" :key="item.text"
-        router :to="item.link">
+        router :to="item.link" :ripple="false">
           <v-icon dark left>{{item.icon}}</v-icon>
           {{item.text}}
         </v-btn>
@@ -38,7 +38,7 @@
       return {
         drawer: null,
         menuItems: [
-          {icon: 'supervisor_account', text: 'View Ideas', link: '/idea'},
+          {icon: 'supervisor_account', text: 'View Ideas', link: '/idea/idealist'},
           {icon: 'room', text: 'Log Idea', link: '/idea/new'},
           {icon: 'person', text: 'Profile', link: '/profile'},
           {icon: 'face', text: 'Sign Up', link: '/signup'},

@@ -6,7 +6,7 @@
             <v-carousel hide-delimiters>
                 <v-carousel-item
                  v-for="idea in ideas" 
-                v-bind:src="idea.imageURL" 
+                v-bind:src="idea.imageUrl" 
                 :key="idea.id"
                 @click="onLoadIdea(idea.id)">
                     <div class="title">{{idea.title}}</div>
