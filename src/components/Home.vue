@@ -33,7 +33,7 @@
             }
         },
         methods: {
-            onLoadIdea (id) {npm 
+            onLoadIdea (id) { 
                 $router.push('/idea/' + id)
             }
         }

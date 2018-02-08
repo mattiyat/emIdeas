@@ -112,16 +112,15 @@
                     return
                 }
                 const ideaData = {
-                title: this.title,
-                abstract: this.abstract,
-                imageUrl: this.imageUrl,
-                description: this.description,
-                date: new Date()
+                    title: this.title,
+                    abstract: this.abstract,
+                    imageUrl: this.imageUrl,
+                    description: this.description,
+                    date: new Date()
                 }
                 this.$store.dispatch('logIdea', ideaData)
-                this.$router.push('/idea/idealist');
+                this.$router.push('/idea/idealist')
             }
-            
         }
     }
 </script>
