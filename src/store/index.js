@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import * as firebase from 'firebase'
 
 Vue.use(Vuex)
 
@@ -10,29 +11,32 @@ export const store = new Vuex.Store({
         imageUrl: require('../assets/cali.jpg'),
         id: '1',
         title: 'Ideas from California',
-        date: '20018-7-18'
+        date: new Date(),
+        description: 'flying cars'
       },
       {
         imageUrl: require('../assets/ny.jpg'),
         id: '2',
         title: 'Ideas from NewYork',
-        date: '20018-7-13'
+        date: new Date(),
+        description: 'flying bars'
       },
       {
         imageUrl: require('../assets/mars.jpg'),
         id: '3',
         title: 'Ideas from Mars',
-        date: '20018-5-17'
+        date: new Date(),
+        description: 'flying pumblus'
       }
     ],
-    users: {
-      id: 'sfgsdfgasfg',
-      registeredIdeas: ['awrresdf2234']
-    }
+    users: null
   },
   mutations: {
     logIdea (state, payload) {
       state.loadedIdeas.push(payload)
+    },
+    setUser (state, payload) {
+      state.users = payload
     }
   },
   actions: {
@@ -47,6 +51,23 @@ export const store = new Vuex.Store({
       }
       // reach out to firebase
       commit('logIdea', idea)
+    },
+    signUserUp ({commit}, payload) {
+      firebase.auth().createUserWithEmailAndPassword(payload.email, payload.password)
+        .then(
+          user => {
+            const newUser = {
+              id: user.uid,
+              backedIdeas: []
+            }
+            commit('setuser', newUser)
+          }
+        )
+        .catch(
+          error => {
+            console.log(error)
+          }
+        )
     }
   },
   getters: {
@@ -66,6 +87,9 @@ export const store = new Vuex.Store({
           return idea.id === ideaId
         })
       }
+    },
+    user (state) {
+      return state.user
     }
   }
 })

@@ -66,9 +66,11 @@
                     <v-layout>
                         <v-flex xs1 sm6 offset-sm2>
                             <v-date-picker v-model="picker"></v-date-picker>
+                            {{ submittableDateTime }}
                         </v-flex>
                         <v-flex xs12 sm6 >
-                            <v-time-picker v-model="picker"></v-time-picker>
+                            <v-time-picker v-model="time"></v-time-picker>
+                            {{ time }}
                         </v-flex>
                     </v-layout>
                     
@@ -80,6 +82,7 @@
                             class="primary"
                             :disabled="!formIsValid"
                             type="submit">Submit</v-btn>
+                            {{ submittableDateTime}}
                         </v-flex>
                     </v-layout>
                 </form>
@@ -95,7 +98,9 @@
                 title: '',
                 abstract: '',
                 imageUrl: '',
-                description: ''
+                description: '',
+                date: new Date(),
+                time: new Date()
             }
         },
         computed: {
@@ -104,6 +109,21 @@
                 this.abstract !== '' &&
                 this.imageUrl !== '' &&
                 this.description !== ''
+            },
+            submittableDateTime () {
+                const date = new Date(this.date)
+                if (typeof this.time === 'string') {
+                    const hours = this.time.match(/^(\d+)/)[1]
+                    const minutes = this.time.match(/:(\d+)/)[1]
+                    date.setHours(hours)
+                    date.setMinutes(minutes) 
+                } else {
+                date.setHours(this.time.getHours())
+                date.setMinutes(this.time.getMinutes())
+                }
+                
+                console.log(date)
+                return date
             }
         },
         methods: {
@@ -116,7 +136,7 @@
                     abstract: this.abstract,
                     imageUrl: this.imageUrl,
                     description: this.description,
-                    date: new Date()
+                    date: new submittableDateTime
                 }
                 this.$store.dispatch('logIdea', ideaData)
                 this.$router.push('/idea/idealist')

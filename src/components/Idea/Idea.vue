@@ -12,7 +12,7 @@
                     </v-card-media>
                     <v-card-text>
                         <div class="info--text">E-Ink Screen for Personalized Notes</div>
-                        <div>Eink screen with low profile, and wireless charging to dynamically display art, sayings, reminders, alerts</div>
+                        <div>{{ idea.description }}</div>
                         
                     </v-card-text>
                     <v-card-actions>

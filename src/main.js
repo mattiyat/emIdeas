@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import App from './App'
+import * as firebase from 'firebase'
 import router from './router'
 import { store } from './store'
 import '../node_modules/vuetify/src/stylus/app.styl'
@@ -50,7 +51,16 @@ new Vue({
   el: '#app',
   router,
   store,
-  render: h => h(App)
+  render: h => h(App),
+  created () {
+    firebase.initializeApp({
+      apiKey: 'AIzaSyD-K53R59_KPzfehE3n1EbHWtIk1pGkbv8',
+        authDomain: 'emoar-c71cd.firebaseapp.com',
+        databaseURL: 'https://emoar-c71cd.firebaseio.com',
+        projectId: 'emoar-c71cd',
+        storageBucket: 'emoar-c71cd.appspot.com'
+    })
+  }
 })
 
 Vue.use(Vuetify, {
